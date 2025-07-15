@@ -1,8 +1,8 @@
 import { StyleSheet,Platform } from "react-native";
 import type {ImageStyle, TextStyle, ViewStyle} from "react-native"
 import {MMKV} from 'react-native-mmkv';
-import crypto from 'crypto'
 import {LRUCache} from 'lru-cache'
+import {sha256} from 'js-sha256';
 
 const mmkv = new MMKV({id:'style-cache'})
 
@@ -34,7 +34,7 @@ const applyPlatformSelect=(style:any):any=>{
 }
 const hashStyle=(style:object,theme:string):string=>{
   const raw = JSON.stringify({style,theme});
-  return crypto.createHash('sha256').update(raw).digest('hex')
+  return sha256(raw)
 }
 
 const getCachedStyle=(inputStyle:SupportedStyle,theme:string='default'):any=>{

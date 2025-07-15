@@ -56,6 +56,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
+    "js-sha256": "^0.11.1",
     "lru-cache": "^11.1.0",
     "react-native-mmkv": "^3.3.0"
   },
