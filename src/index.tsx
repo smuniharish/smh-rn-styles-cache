@@ -1,10 +1,7 @@
 import { StyleSheet,Platform } from "react-native";
 import type {ImageStyle, TextStyle, ViewStyle} from "react-native"
-import {MMKV} from 'react-native-mmkv';
 import {LRUCache} from 'lru-cache'
 import {sha256} from 'js-sha256';
-
-const mmkv = new MMKV({id:'style-cache'})
 
 const lru = new LRUCache<string,any>({max:500})
 
@@ -55,19 +52,11 @@ const getCachedStyle=(inputStyle:SupportedStyle,theme:string='default'):any=>{
     return lru.get(key)
   }
 
-  if(mmkv.contains(key)){
-    const decoded = JSON.parse(mmkv.getString(key)!);
-    const created = StyleSheet.create({style:decoded})
-    const result = created.style;
-    lru.set(key,result);
-    return result;
-  }
 
   const created = StyleSheet.create({style:finalStyle});
   const result = created.style;
 
   lru.set(key,result);
-  mmkv.set(key,JSON.stringify(finalStyle));
 
   return result;
 }
@@ -84,7 +73,6 @@ const getCachedStyles = (styleMap:Record<string,SupportedStyle>,theme:string='de
 
 const clearStyleCache = () => {
   lru.clear();
-  mmkv.clearAll();
 }
 
 const prewarmStyles = (styles:SupportedStyle[],theme='default') => {
