@@ -1,6 +1,6 @@
 # SMH React Native Styles Cache (`smh-rn-styles-cache`)
 
-A lightweight and efficient style caching system for **React Native**, using **LRU** + **MMKV** for performance and persistence.
+A lightweight and efficient style caching system for **React Native**, using **LRU** for performance and persistence.
 Perfect for **JSON-driven UI engines**, dynamic theming, and production-ready rendering optimizations.
 
 ---
@@ -9,7 +9,6 @@ Perfect for **JSON-driven UI engines**, dynamic theming, and production-ready re
 
 * 🧠 **Memoized**: Caches styles using SHA-256 hashes
 * ⚡️ **Fast**: Uses in-memory [LRU cache](https://github.com/isaacs/node-lru-cache)
-* 💾 **Persistent**: Uses [MMKV storage](https://github.com/mrousavy/react-native-mmkv)
 * 🌓 **Theme-aware**: Supports theme-based caching
 * 🧩 **Platform-aware**: Supports `Platform.select()` blocks
 * 🧱 **Flat + Array Support**: Handles arrays and deeply nested styles
@@ -125,7 +124,6 @@ const styles = getCachedStyles({
 
 > StyleSheet.create already caches styles. Why use this?
 
-✅ To **persist across sessions** (MMKV)<br>
 ✅ To **share styles between JSON-driven UIs**<br>
 ✅ To **deduplicate runtime styles** dynamically built<br>
 ✅ To **avoid recreating identical styles across renders**
@@ -146,7 +144,6 @@ Please feel free to drop me a mail — **S MUNI HARISH**
 
 Thanks to the authors of these libraries for inspiration:
 
-* [`react-native-mmkv`](https://github.com/mrousavy/react-native-mmkv)
 * [`lru-cache`](https://github.com/isaacs/node-lru-cache)
 * `react-native` team
 
@@ -168,7 +165,7 @@ Apache License 2.0
 
 ## 🔖 Keywords
 
-`react-native` · `style-cache` · `dynamic-styles` · `json-ui` · `theme-aware` · `platform-aware` · `performance` · `mmkv` · `style-optimization` · `expo`
+`react-native` · `style-cache` · `dynamic-styles` · `json-ui` · `theme-aware` · `platform-aware` · `performance` · `style-optimization` · `expo`
 
 ---
 
